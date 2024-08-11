@@ -1,7 +1,6 @@
 package main
 
 import (
-	// "errors"
 	"bufio"
 	"fmt"
 	"os"
@@ -40,7 +39,6 @@ func getNoteData() (string, string) {
 
 func getUserInput(promtText string) string {
 	fmt.Print(promtText)
-	// var value string
 
 	// Scanln() can't handle long text input
 	// fmt.Scanln(&value)
