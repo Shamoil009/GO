@@ -11,7 +11,12 @@ import (
 )
 
 type saver interface {
-	Save() error
+	Save() error // error is return value
+}
+
+type outputtable interface {
+	saver
+	Display()
 }
 
 func main() {
@@ -33,17 +38,22 @@ func main() {
 		return
 	}
 
-	todo.Display()
-	err = saveData(todo)
+	err = outputData(todo)
 	if err != nil {
 		return
 	}
 
-	userNote.Display()
-	err = saveData(userNote)
-	if err != nil {
-		return
-	}
+	outputData(userNote)
+}
+
+// you can use interface{} or any to allow anything
+func printSomething(data interface{}) {
+	fmt.Println(data)
+}
+
+func outputData(data outputtable) error {
+	data.Display()
+	return saveData(data)
 }
 
 func saveData(data saver) error {
