@@ -47,8 +47,16 @@ func main() {
 }
 
 // you can use interface{} or any to allow anything
-func printSomething(data interface{}) {
-	fmt.Println(data)
+func printSomething(value interface{}) {
+	// type switching
+	switch value.(type) {
+	case int:
+		fmt.Println("Integer: ", value)
+	case float64:
+		fmt.Println("Float: ", value)
+	case string:
+		fmt.Println(value)
+	}
 }
 
 func outputData(data outputtable) error {
