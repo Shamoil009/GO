@@ -2,7 +2,18 @@ package main
 
 import "fmt"
 
+// array with dynamic length
 func main() {
+	prices := []float64{10.99, 8.99}
+	fmt.Println(prices[0:1])
+	prices[1] = 9.99
+
+	prices = append(prices, 5.99)
+	fmt.Println(prices)
+
+}
+
+func main1() {
 	var productNames [4]string
 	productNames = [4]string{"A book"}
 	prices := [4]float64{23.99, 32.4, 21.4, 54}
@@ -18,6 +29,7 @@ func main() {
 
 	// start 1 index to end
 	// featuredPrices:=prices[1:]
+	// featuredPrices[0]=199.99 // this will assign value to parent array (prices)
 
 	fmt.Println(featuredPrices)
 }
