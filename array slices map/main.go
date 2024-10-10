@@ -1,6 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"example.com/main/practice"
+)
+
+// Practice
+func main2() {
+
+	practice.Practice()
+}
 
 // array with dynamic length
 func main() {
@@ -8,7 +18,11 @@ func main() {
 	fmt.Println(prices[0:1])
 	prices[1] = 9.99
 
-	prices = append(prices, 5.99)
+	prices = append(prices, 5.99, 12.99, 29.99, 100.10)
+	fmt.Println(prices)
+
+	discountedPrices := []float64{101.99, 81.99, 20.59}
+	prices = append(prices, discountedPrices...)
 	fmt.Println(prices)
 
 }
